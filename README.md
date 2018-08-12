@@ -1,0 +1,1 @@
+# Browser screenshot extension [![Build Status](https://travis-ci.org/arteniioleg/chak-chak.svg?branch=dev)](https://travis-ci.org/arteniioleg/chak-chak)
