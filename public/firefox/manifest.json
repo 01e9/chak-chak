@@ -1,0 +1,20 @@
+{
+  "name": "Chak Chak",
+  "description": "Screenshot Capture & Annotate",
+  "version": "2.0.0",
+  "manifest_version": 2,
+  "permissions": ["activeTab", "\u003Call_urls\u003E"],
+  "background": {
+    "scripts": ["js/background.js"]
+  },
+  "page_action": {
+    "browser_style": true,
+    "default_icon": {
+      "128": "icon.png"
+    },
+    "show_matches": ["http://*/*", "https://*/*", "file://*/*", "ftp://*/*"]
+  },
+  "icons": {
+    "128": "icon.png"
+  }
+}
