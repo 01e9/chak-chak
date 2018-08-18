@@ -5,6 +5,7 @@ const reduceRoot = createReduceRoot(new ImageStorage())
 
 it('required keys', () => {
     expect(reduceRoot(undefined, {type: null})).toMatchObject({
-        mainImage: null
+        mainImage: null,
+        toolbar: expect.any(Object),
     })
 })
