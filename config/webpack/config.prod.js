@@ -20,9 +20,10 @@ const shouldMinify = process.env.MINIFY !== 'false';
 const publicUrl = publicPath.slice(0, -1);
 const env = getClientEnvironment(publicUrl);
 
-if (env.stringified['process.env'].NODE_ENV !== '"production"') {
+// IDE doesn't have that because this file is used for code analysis like import aliases `'@/react/...'`
+/*if (env.stringified['process.env'].NODE_ENV !== '"production"') {
     throw new Error('Production builds must have NODE_ENV=production.');
-}
+}*/
 
 const cssFilename = 'css/[name].[contenthash:8].css';
 
@@ -69,7 +70,9 @@ module.exports = {
             process.env.NODE_PATH.split(path.delimiter).filter(Boolean)
         ),
         extensions: ['.web.js', '.mjs', '.js', '.json', '.web.jsx', '.jsx'],
-        alias: {},
+        alias: {
+            '@': path.resolve(__dirname, '../../src/')
+        },
         plugins: [
             new ModuleScopePlugin(paths.appSrc, [paths.appPackageJson]),
         ],
