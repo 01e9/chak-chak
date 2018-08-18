@@ -6,7 +6,7 @@ import createReduceRoot from "@/redux/reducers";
 import { ImageStorageProvider } from "@/react/context/ImageStorage";
 import { actionMainImageSet } from "@/redux/actions/mainImage";
 import MainCanvas from "@/redux/react/MainCanvas";
-import Toolbar from "@/react/Toolbar";
+import Toolbar from "@/redux/react/Toolbar";
 
 export default function createEditor(image) {
     const
