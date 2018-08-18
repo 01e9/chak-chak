@@ -9,10 +9,7 @@ CMD=${@}
 
 SCRIPT_DIR=$(dirname $(readlink -f "$0"))
 PROJECT_DIR=$(dirname ${SCRIPT_DIR})
-IMAGE='chak-chak:1.0'
-
-[ -n "$(docker images -q --filter=reference="${IMAGE}")" ] \
-    || docker build -t "${IMAGE}" ${SCRIPT_DIR}
+IMAGE='arteniioleg/ide:js'
 
 x11docker --hostdisplay --homedir ${HOME} --clipboard --stdout --stderr \
     --cap-default \
