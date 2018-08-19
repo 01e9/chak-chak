@@ -6,12 +6,12 @@ const requiredProps = {
     image: new Image(100, 100)
 }
 
-function mount(props = {}) {
+function createMounted(props = {}) {
     return createMount()(<div><Canvas {...requiredProps} {...props} /></div>)
 }
 
 describe('snapshot', () => {
     it('required props', () => {
-        expect(mount().html()).toMatchSnapshot()
+        expect(createMounted().html()).toMatchSnapshot()
     })
 })
