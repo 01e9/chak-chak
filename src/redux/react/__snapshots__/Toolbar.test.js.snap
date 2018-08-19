@@ -1,0 +1,94 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`snapshot 1`] = `
+
+<div>
+  <div class="MuiPaper-root-3 MuiPaper-elevation2-7 MuiPaper-rounded-4 Toolbar_-root-1"
+       style="top: 102px; left: 101px;"
+  >
+    <button tabindex="0"
+            class="MuiButtonBase-root-54 MuiButton-root-30 MuiButton-text-32 MuiButton-flat-35 Toolbar_-drag-2 drag-button"
+            type="button"
+    >
+      <span class="MuiButton-label-31">
+        <svg class="MuiSvgIcon-root-57"
+             focusable="false"
+             viewbox="0 0 24 24"
+             aria-hidden="true"
+        >
+          <path fill="none"
+                d="M0 0h24v24H0V0z"
+          >
+          </path>
+          <path d="M11 18c0 1.1-.9 2-2 2s-2-.9-2-2 .9-2 2-2 2 .9 2 2zm-2-8c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0-6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm6 4c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z">
+          </path>
+        </svg>
+      </span>
+    </button>
+    <button tabindex="0"
+            class="MuiButtonBase-root-54 MuiButton-root-30 MuiButton-text-32 MuiButton-flat-35"
+            type="button"
+    >
+      <span class="MuiButton-label-31">
+        <svg class="MuiSvgIcon-root-57"
+             focusable="false"
+             viewbox="0 0 24 24"
+             aria-hidden="true"
+        >
+          <path fill="none"
+                d="M0 0h24v24H0z"
+          >
+          </path>
+          <path d="M7 14c-1.66 0-3 1.34-3 3 0 1.31-1.16 2-2 2 .92 1.22 2.49 2 4 2 2.21 0 4-1.79 4-4 0-1.66-1.34-3-3-3zm13.71-9.37l-1.34-1.34a.9959.9959 0 0 0-1.41 0L9 12.25 11.75 15l8.96-8.96c.39-.39.39-1.02 0-1.41z">
+          </path>
+        </svg>
+      </span>
+      <span class="MuiTouchRipple-root-64">
+      </span>
+    </button>
+    <button tabindex="0"
+            class="MuiButtonBase-root-54 MuiButton-root-30 MuiButton-text-32 MuiButton-flat-35"
+            type="button"
+    >
+      <span class="MuiButton-label-31">
+        <svg class="MuiSvgIcon-root-57"
+             focusable="false"
+             viewbox="0 0 24 24"
+             aria-hidden="true"
+        >
+          <path fill="none"
+                d="M0 0h24v24H0z"
+          >
+          </path>
+          <path d="M17 15h2V7c0-1.1-.9-2-2-2H9v2h8v8zM7 17V1H5v4H1v2h4v10c0 1.1.9 2 2 2h10v4h2v-4h4v-2H7z">
+          </path>
+        </svg>
+      </span>
+      <span class="MuiTouchRipple-root-64">
+      </span>
+    </button>
+    <button tabindex="0"
+            class="MuiButtonBase-root-54 MuiButton-root-30 MuiButton-text-32 MuiButton-flat-35"
+            type="button"
+    >
+      <span class="MuiButton-label-31">
+        <svg class="MuiSvgIcon-root-57"
+             focusable="false"
+             viewbox="0 0 24 24"
+             aria-hidden="true"
+        >
+          <path fill="none"
+                d="M0 0h24v24H0z"
+          >
+          </path>
+          <path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM14 13v4h-4v-4H7l5-5 5 5h-3z">
+          </path>
+        </svg>
+      </span>
+      <span class="MuiTouchRipple-root-64">
+      </span>
+    </button>
+  </div>
+</div>
+
+`;
