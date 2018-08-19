@@ -2,15 +2,13 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { withStyles } from '@material-ui/core'
 import Paper from '@material-ui/core/Paper';
-import Tabs from '@material-ui/core/Tabs';
-import Tab from '@material-ui/core/Tab';
+import Button from '@material-ui/core/Button';
 import {
     DragIndicator as DragIndicatorIcon,
     Brush as BrushIcon,
     Crop as CropIcon,
     CloudUpload as CloudUploadIcon
 } from '@material-ui/icons';
-import mergeClassNames from 'merge-class-names'
 
 class Toolbar_ extends React.Component {
     static propTypes = {
@@ -29,11 +27,20 @@ class Toolbar_ extends React.Component {
     }
 
     static getDerivedStateFromProps(props, state) {
-        if (!state.hasCapture) {
+        if (state.hasCapture) {
+            return null;
+        } else {
             return {
                 left: props.left,
                 top: props.top
             }
+        }
+    }
+
+    static getPointerPosition(event) {
+        return {
+            left: event.pageX,
+            top: event.pageY
         }
     }
 
@@ -42,12 +49,12 @@ class Toolbar_ extends React.Component {
     };
 
     onGotCapture = event => {
-        const { pageX: cursorLeft, pageY: cursorTop } = event;
+        const pointerPosition = this.constructor.getPointerPosition(event);
 
         this.setState(({left, top}) => ({
             hasCapture: true,
-            leftShift: left - cursorLeft,
-            topShift: top - cursorTop
+            leftShift: left - pointerPosition.left,
+            topShift: top - pointerPosition.top
         }));
     }
 
@@ -56,15 +63,15 @@ class Toolbar_ extends React.Component {
             return;
         }
 
-        const { pageX: left, pageY: top } = event;
+        const pointerPosition = this.constructor.getPointerPosition(event);
 
         this.setState(({leftShift, topShift}) => ({
-            left: left + leftShift,
-            top: top + topShift
+            left: pointerPosition.left + leftShift,
+            top: pointerPosition.top + topShift
         }));
     }
 
-    onLostCapture = event => {
+    onLostCapture = () => {
         this.setState({
             hasCapture: false,
             leftShift: 0,
@@ -80,54 +87,37 @@ class Toolbar_ extends React.Component {
     render() {
         const
             { classes } = this.props,
-            { top, left, hasCapture } = this.state,
-            tabProps = {
-                classes: {root: classes.tab}
-            };
+            { top, left } = this.state;
 
         return (
-            <Paper
-                className={classes.paper}
-                style={{top: top + 'px', left: left + 'px'}}
-            >
-                <Tabs>
-                    <Tab
-                        classes={{
-                            root: mergeClassNames(classes.tab, classes.drag, hasCapture && classes.dragActive)
-                        }}
-                        icon={<DragIndicatorIcon />}
-                        disableRipple
+            <Paper className={classes.root} style={{top: top + 'px', left: left + 'px'}}>
+                <Button
+                    className={classes.drag + ' drag-button'}
+                    disableRipple
 
-                        onPointerDown={this.onDown}
-                        onGotPointerCapture={this.onGotCapture}
-                        onPointerMove={this.onMove}
-                        onLostPointerCapture={this.onLostCapture}
-                    />
-                    <Tab {...tabProps} icon={<BrushIcon/>} />
-                    <Tab {...tabProps} icon={<CropIcon/>} />
-                    <Tab {...tabProps} icon={<CloudUploadIcon/>} />
-                </Tabs>
+                    onPointerDown={this.onDown}
+                    onGotPointerCapture={this.onGotCapture}
+                    onPointerMove={this.onMove}
+                    onLostPointerCapture={this.onLostCapture}
+                >
+                    <DragIndicatorIcon />
+                </Button>
+                <Button><BrushIcon/></Button>
+                <Button><CropIcon/></Button>
+                <Button><CloudUploadIcon/></Button>
             </Paper>
         )
     }
 }
 
-const styles = (theme) => ({
-    paper: {
-        position: 'fixed',
-        display: 'inline-block',
-        overflow: 'hidden'
+const styles = {
+    root: {
+        position: 'fixed'
     },
     drag: {
         cursor: 'move'
-    },
-    dragActive: {
-        backgroundColor: theme.palette.grey[200]
-    },
-    tab: {
-        minWidth: '50px'
     }
-})
+}
 
 const Toolbar = withStyles(styles)(Toolbar_)
 
