@@ -1,4 +1,3 @@
-import React from 'react'
 import Editor_ from "@/react/Editor";
 import { connect } from 'react-redux'
 import MainCanvas from "@/redux/react/MainCanvas";
