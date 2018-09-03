@@ -3,15 +3,22 @@
 exports[`snapshot 1`] = `
 
 <div>
-  <div class="MuiPaper-root-3 MuiPaper-elevation2-7 MuiPaper-rounded-4 Toolbar_-root-1"
+  <div class="Editor_-canvasWrap-1">
+    <div class="Canvas_-root-2"
+         style="width: 100px; height: 100px;"
+    >
+    </div>
+    [ActiveTool]
+  </div>
+  <div class="MuiPaper-root-5 MuiPaper-elevation2-9 MuiPaper-rounded-6 Toolbar_-root-3"
        style="top: 100px; left: 100px;"
   >
     <button tabindex="0"
-            class="MuiButtonBase-root-54 MuiButton-root-30 MuiButton-text-32 MuiButton-flat-35 Toolbar_-drag-2 drag-button"
+            class="MuiButtonBase-root-56 MuiButton-root-32 MuiButton-text-34 MuiButton-flat-37 Toolbar_-drag-4 drag-button"
             type="button"
     >
-      <span class="MuiButton-label-31">
-        <svg class="MuiSvgIcon-root-57"
+      <span class="MuiButton-label-33">
+        <svg class="MuiSvgIcon-root-59"
              focusable="false"
              viewbox="0 0 24 24"
              aria-hidden="true"
@@ -26,11 +33,11 @@ exports[`snapshot 1`] = `
       </span>
     </button>
     <button tabindex="0"
-            class="MuiButtonBase-root-54 MuiButton-root-30 MuiButton-text-32 MuiButton-flat-35"
+            class="MuiButtonBase-root-56 MuiButton-root-32 MuiButton-text-34 MuiButton-flat-37"
             type="button"
     >
-      <span class="MuiButton-label-31">
-        <svg class="MuiSvgIcon-root-57"
+      <span class="MuiButton-label-33">
+        <svg class="MuiSvgIcon-root-59"
              focusable="false"
              viewbox="0 0 24 24"
              aria-hidden="true"
@@ -43,15 +50,15 @@ exports[`snapshot 1`] = `
           </path>
         </svg>
       </span>
-      <span class="MuiTouchRipple-root-64">
+      <span class="MuiTouchRipple-root-66">
       </span>
     </button>
     <button tabindex="0"
-            class="MuiButtonBase-root-54 MuiButton-root-30 MuiButton-text-32 MuiButton-flat-35"
+            class="MuiButtonBase-root-56 MuiButton-root-32 MuiButton-text-34 MuiButton-flat-37"
             type="button"
     >
-      <span class="MuiButton-label-31">
-        <svg class="MuiSvgIcon-root-57"
+      <span class="MuiButton-label-33">
+        <svg class="MuiSvgIcon-root-59"
              focusable="false"
              viewbox="0 0 24 24"
              aria-hidden="true"
@@ -64,15 +71,15 @@ exports[`snapshot 1`] = `
           </path>
         </svg>
       </span>
-      <span class="MuiTouchRipple-root-64">
+      <span class="MuiTouchRipple-root-66">
       </span>
     </button>
     <button tabindex="0"
-            class="MuiButtonBase-root-54 MuiButton-root-30 MuiButton-text-32 MuiButton-flat-35"
+            class="MuiButtonBase-root-56 MuiButton-root-32 MuiButton-text-34 MuiButton-flat-37"
             type="button"
     >
-      <span class="MuiButton-label-31">
-        <svg class="MuiSvgIcon-root-57"
+      <span class="MuiButton-label-33">
+        <svg class="MuiSvgIcon-root-59"
              focusable="false"
              viewbox="0 0 24 24"
              aria-hidden="true"
@@ -85,13 +92,9 @@ exports[`snapshot 1`] = `
           </path>
         </svg>
       </span>
-      <span class="MuiTouchRipple-root-64">
+      <span class="MuiTouchRipple-root-66">
       </span>
     </button>
-  </div>
-  <div class="Canvas_-root-71"
-       style="width: 100px; height: 100px;"
-  >
   </div>
 </div>
 

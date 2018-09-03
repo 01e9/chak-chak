@@ -5,8 +5,7 @@ import ImageStorage from "@/storage/ImageStorage";
 import createReduceRoot from "@/redux/reducers";
 import { ImageStorageProvider } from "@/react/context/ImageStorage";
 import { actionMainImageSet } from "@/redux/actions/mainImage";
-import MainCanvas from "@/redux/react/MainCanvas";
-import Toolbar from "@/redux/react/Toolbar";
+import Editor from "@/redux/react/Editor";
 
 export default function createEditor(image) {
     const
@@ -15,14 +14,13 @@ export default function createEditor(image) {
 
     store.dispatch(actionMainImageSet(image));
 
-    const Editor = () => (
+    const Editor_ = () => (
         <Provider store={store}>
             <ImageStorageProvider value={imageStorage}>
-                <Toolbar/>
-                <MainCanvas/>
+                <Editor/>
             </ImageStorageProvider>
         </Provider>
     )
 
-    return Editor
+    return Editor_
 }
