@@ -11,8 +11,16 @@ class Canvas_ extends React.Component {
 
     canvasRef = React.createRef()
 
-    componentDidMount() {
+    redrawImage() {
         canvasDrawImage(this.canvasRef.current, this.props.image);
+    }
+
+    componentDidMount() {
+        this.redrawImage();
+    }
+
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        this.redrawImage();
     }
 
     render() {

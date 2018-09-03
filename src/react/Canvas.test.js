@@ -7,11 +7,17 @@ const requiredProps = {
 }
 
 function createMounted(props = {}) {
-    return createMount()(<div><Canvas {...requiredProps} {...props} /></div>)
+    return createMount()(<Canvas {...requiredProps} {...props} />)
 }
 
 describe('snapshot', () => {
     it('required props', () => {
         expect(createMounted().html()).toMatchSnapshot()
+    })
+    it('changed image', async () => {
+        const wrapper = createMounted()
+        expect(wrapper.html()).toMatchSnapshot()
+        await new Promise(resolve => wrapper.setProps({image: new Image(101, 102)}, resolve))
+        expect(wrapper.html()).toMatchSnapshot()
     })
 })
