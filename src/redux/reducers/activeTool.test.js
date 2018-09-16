@@ -9,7 +9,13 @@ it('activate', () => {
     const state = reduceActiveTool(undefined, actionToolActivate('test'));
     expect(state).toBe('test');
 })
-it('deactivate', () => {
-    const state = reduceActiveTool('foo', actionToolDeactivate('bar'));
-    expect(state).toBe(null);
+describe('deactivate', () => {
+    it('current matches deactivated', () => {
+        const state = reduceActiveTool('foo', actionToolDeactivate('foo'));
+        expect(state).toBe(null);
+    })
+    it('current not matches deactivated', () => {
+        const state = reduceActiveTool('foo', actionToolDeactivate('bar'));
+        expect(state).toBe('foo');
+    })
 })
