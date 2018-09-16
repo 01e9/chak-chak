@@ -8,6 +8,5 @@ it('required keys', () => {
         mainImage: null,
         toolbar: expect.any(Object),
         tools: expect.any(Object),
-        filters: expect.any(Object),
     })
 })
