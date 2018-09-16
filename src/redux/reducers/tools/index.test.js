@@ -5,5 +5,6 @@ it('required keys', () => {
     const state = reduceTools(undefined, {type: null}, new ImageStorage());
     expect(state).toMatchObject({
         brush: expect.any(Object),
+        color: expect.any(Object),
     })
 })
