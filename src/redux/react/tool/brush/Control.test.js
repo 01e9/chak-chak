@@ -34,8 +34,24 @@ describe('snapshot', () => {
     it('active', () => {
         const imageStorage = new ImageStorage();
         const state = createReduceRoot(imageStorage)(undefined, actionToolActivate(TOOL_NAME_BRUSH))
-
         const { wrapper } = createMounted(imageStorage, state);
         expect(wrapper.html()).toMatchSnapshot();
+    })
+})
+
+describe('mapDispatchToProps', () => {
+    it('onClick', () => {
+        const imageStorage = new ImageStorage();
+        const state = createReduceRoot(imageStorage)(undefined, {type: null})
+        const { wrapper, store } = createMounted(imageStorage, state);
+
+        const button = wrapper.find('Button')
+        expect(button).toHaveLength(1);
+
+        expect(store.getActions()).toHaveLength(0);
+        button.simulate('click')
+        const actions = store.getActions()
+        expect(actions).toHaveLength(1)
+        expect(actions[0]).toEqual(actionToolActivate(TOOL_NAME_BRUSH))
     })
 })

@@ -5,13 +5,14 @@ import BrushIcon from '@material-ui/icons/Brush';
 
 export default class ToolBrushControl extends React.Component {
     static propTypes = {
-        isActive: PropTypes.bool
+        isActive: PropTypes.bool,
+        onClick: PropTypes.func.isRequired
     }
 
     render() {
-        const { isActive } = this.props;
+        const { isActive, onClick } = this.props;
         return (
-            <Button color={isActive ? "primary" : "default"}><BrushIcon/></Button>
+            <Button color={isActive ? "primary" : "default"} onClick={onClick}><BrushIcon/></Button>
         )
     }
 }
