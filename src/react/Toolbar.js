@@ -3,19 +3,15 @@ import PropTypes from 'prop-types'
 import { withStyles } from '@material-ui/core'
 import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button';
-import {
-    DragIndicator as DragIndicatorIcon,
-    Brush as BrushIcon,
-    Crop as CropIcon,
-    CloudUpload as CloudUploadIcon
-} from '@material-ui/icons';
+import { DragIndicator as DragIndicatorIcon } from '@material-ui/icons';
 
 class Toolbar_ extends React.Component {
     static propTypes = {
         classes: PropTypes.object.isRequired,
         left: PropTypes.number.isRequired,
         top: PropTypes.number.isRequired,
-        onPositionUpdate: PropTypes.func.isRequired
+        onPositionUpdate: PropTypes.func.isRequired,
+        tools: PropTypes.arrayOf(PropTypes.func).isRequired
     }
 
     state = {
@@ -86,7 +82,7 @@ class Toolbar_ extends React.Component {
 
     render() {
         const
-            { classes } = this.props,
+            { classes, tools } = this.props,
             { top, left } = this.state;
 
         return (
@@ -102,9 +98,7 @@ class Toolbar_ extends React.Component {
                 >
                     <DragIndicatorIcon />
                 </Button>
-                <Button><BrushIcon/></Button>
-                <Button><CropIcon/></Button>
-                <Button><CloudUploadIcon/></Button>
+                {tools.map((tool) => tool())}
             </Paper>
         )
     }

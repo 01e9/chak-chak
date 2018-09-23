@@ -5,7 +5,7 @@ import configureStore from 'redux-mock-store'
 import ImageStorage from "@/storage/ImageStorage";
 import createReduceRoot from "@/redux/reducers";
 import { createMount } from "@material-ui/core/test-utils";
-import { ACTION_TOOLBAR_POSITION_SET, actionToolbarPositionSet } from "@/redux/actions/toolbar";
+import { actionToolbarPositionSet } from "@/redux/actions/toolbar";
 
 const mockStore = configureStore([])
 

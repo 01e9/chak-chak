@@ -5,7 +5,11 @@ import { createMount } from '@material-ui/core/test-utils';
 const requiredProps = {
     left: 101,
     top: 102,
-    onPositionUpdate: jest.fn()
+    onPositionUpdate: jest.fn(),
+    tools: [
+        () => <button key="tool1">[Tool1]</button>,
+        () => <button key="tool2">[Tool2]</button>,
+    ]
 }
 
 function createMounted(props = {}) {
