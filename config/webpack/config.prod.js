@@ -4,9 +4,8 @@ const autoprefixer = require('autoprefixer');
 const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const ManifestPlugin = require('webpack-manifest-plugin');
-const InterpolateHtmlPlugin = require('react-dev-utils/InterpolateHtmlPlugin');
 const eslintFormatter = require('react-dev-utils/eslintFormatter');
 const ModuleScopePlugin = require('react-dev-utils/ModuleScopePlugin');
 const paths = require('../paths');
@@ -14,7 +13,6 @@ const getClientEnvironment = require('../env');
 const configHtmlPlugin = require('./plugin.html');
 
 const publicPath = paths.servedPath;
-const shouldUseRelativeAssetPaths = publicPath === '../';
 const shouldUseSourceMap = process.env.GENERATE_SOURCEMAP !== 'false';
 const shouldMinify = process.env.MINIFY !== 'false';
 const publicUrl = publicPath.slice(0, -1);
@@ -26,12 +24,6 @@ const env = getClientEnvironment(publicUrl);
 }*/
 
 const cssFilename = 'css/[name].[contenthash:8].css';
-
-const extractTextPluginOptions = shouldUseRelativeAssetPaths
-    ? {publicPath: Array(cssFilename.split('/').length).join('../')}
-    : {};
-
-const polyfills = require.resolve('../polyfills');
 
 const htmlPluginOptions = {
     minify: {
@@ -116,47 +108,39 @@ module.exports = {
                     },
                     {
                         test: /\.css$/,
-                        loader: ExtractTextPlugin.extract(
-                            Object.assign(
-                                {
-                                    fallback: {
-                                        loader: require.resolve('style-loader'),
-                                        options: {
-                                            hmr: false,
-                                        },
-                                    },
-                                    use: [
-                                        {
-                                            loader: require.resolve('css-loader'),
-                                            options: {
-                                                importLoaders: 1,
-                                                minimize: true,
-                                                sourceMap: shouldUseSourceMap,
-                                            },
-                                        },
-                                        {
-                                            loader: require.resolve('postcss-loader'),
-                                            options: {
-                                                ident: 'postcss',
-                                                plugins: () => [
-                                                    require('postcss-flexbugs-fixes'),
-                                                    autoprefixer({
-                                                        browsers: [
-                                                            '>1%',
-                                                            'last 4 versions',
-                                                            'Firefox ESR',
-                                                            'not ie < 9',
-                                                        ],
-                                                        flexbox: 'no-2009',
-                                                    }),
-                                                ],
-                                            },
-                                        },
+                        use: [
+                            {
+                                loader: MiniCssExtractPlugin.loader,
+                                options: {
+                                    sourceMap: shouldUseSourceMap,
+                                },
+                            },
+                            {
+                                loader: require.resolve('css-loader'),
+                                options: {
+                                    sourceMap: shouldUseSourceMap,
+                                },
+                            },
+                            {
+                                loader: require.resolve('postcss-loader'),
+                                options: {
+                                    sourceMap: shouldUseSourceMap,
+                                    ident: 'postcss',
+                                    plugins: () => [
+                                        require('postcss-flexbugs-fixes'),
+                                        autoprefixer({
+                                            browsers: [
+                                                '>1%',
+                                                'last 4 versions',
+                                                'Firefox ESR',
+                                                'not ie < 9',
+                                            ],
+                                            flexbox: 'no-2009',
+                                        }),
                                     ],
                                 },
-                                extractTextPluginOptions
-                            )
-                        ),
+                            }
+                        ],
                     },
                     {
                         loader: require.resolve('file-loader'),
@@ -170,7 +154,6 @@ module.exports = {
         ],
     },
     plugins: [
-        new InterpolateHtmlPlugin(env.raw),
         new HtmlWebpackPlugin(Object.assign({}, configHtmlPlugin.editor, htmlPluginOptions)),
         new webpack.DefinePlugin(env.stringified),
         /*new webpack.optimize.UglifyJsPlugin({
@@ -187,7 +170,7 @@ module.exports = {
             },
             sourceMap: shouldUseSourceMap,
         }),*/
-        new ExtractTextPlugin({
+        new MiniCssExtractPlugin({
             filename: cssFilename,
         }),
         new ManifestPlugin({
