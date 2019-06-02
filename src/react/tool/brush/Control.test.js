@@ -22,7 +22,7 @@ describe('callback props', () => {
     it('onClick', () => {
         const props = {onClick: jest.fn()};
         const wrapper = createMount()(<div><ToolBrushControl {...requiredProsp} {...props} /></div>);
-        const button = wrapper.find('Button')
+        const button = wrapper.find('button')
         expect(button).toHaveLength(1)
         expect(props.onClick).not.toHaveBeenCalled()
         button.simulate('click')

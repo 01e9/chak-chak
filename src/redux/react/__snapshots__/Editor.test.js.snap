@@ -10,18 +10,19 @@ exports[`snapshot main image 1`] = `
     </div>
     [ActiveTool]
   </div>
-  <div class="MuiPaper-root-5 MuiPaper-elevation2-9 MuiPaper-rounded-6 Toolbar_-root-3"
+  <div class="MuiPaper-root MuiPaper-elevation1 MuiPaper-rounded Toolbar_-root-3"
        style="top: 100px; left: 100px;"
   >
-    <button tabindex="0"
-            class="MuiButtonBase-root-56 MuiButton-root-32 MuiButton-text-34 MuiButton-flat-37 Toolbar_-drag-4 drag-button"
+    <button class="MuiButtonBase-root MuiButton-root Toolbar_-drag-4 drag-button MuiButton-text"
+            tabindex="0"
             type="button"
     >
-      <span class="MuiButton-label-33">
-        <svg class="MuiSvgIcon-root-59"
+      <span class="MuiButton-label">
+        <svg class="MuiSvgIcon-root"
              focusable="false"
              viewbox="0 0 24 24"
              aria-hidden="true"
+             role="presentation"
         >
           <path fill="none"
                 d="M0 0h24v24H0V0z"
@@ -32,15 +33,16 @@ exports[`snapshot main image 1`] = `
         </svg>
       </span>
     </button>
-    <button tabindex="0"
-            class="MuiButtonBase-root-56 MuiButton-root-32 MuiButton-text-34 MuiButton-flat-37"
+    <button class="MuiButtonBase-root MuiButton-root MuiButton-text"
+            tabindex="0"
             type="button"
     >
-      <span class="MuiButton-label-33">
-        <svg class="MuiSvgIcon-root-59"
+      <span class="MuiButton-label">
+        <svg class="MuiSvgIcon-root"
              focusable="false"
              viewbox="0 0 24 24"
              aria-hidden="true"
+             role="presentation"
         >
           <path fill="none"
                 d="M0 0h24v24H0z"
@@ -50,7 +52,7 @@ exports[`snapshot main image 1`] = `
           </path>
         </svg>
       </span>
-      <span class="MuiTouchRipple-root-66">
+      <span class="MuiTouchRipple-root">
       </span>
     </button>
   </div>

@@ -3,15 +3,16 @@
 exports[`snapshot active 1`] = `
 
 <div>
-  <button tabindex="0"
-          class="MuiButtonBase-root-25 MuiButton-root-1 MuiButton-text-3 MuiButton-textPrimary-4 MuiButton-flat-6 MuiButton-flatPrimary-7"
+  <button class="MuiButtonBase-root MuiButton-root MuiButton-textPrimary MuiButton-text"
+          tabindex="0"
           type="button"
   >
-    <span class="MuiButton-label-2">
-      <svg class="MuiSvgIcon-root-28"
+    <span class="MuiButton-label">
+      <svg class="MuiSvgIcon-root"
            focusable="false"
            viewbox="0 0 24 24"
            aria-hidden="true"
+           role="presentation"
       >
         <path fill="none"
               d="M0 0h24v24H0z"
@@ -21,7 +22,7 @@ exports[`snapshot active 1`] = `
         </path>
       </svg>
     </span>
-    <span class="MuiTouchRipple-root-35">
+    <span class="MuiTouchRipple-root">
     </span>
   </button>
 </div>
@@ -31,15 +32,16 @@ exports[`snapshot active 1`] = `
 exports[`snapshot inactive 1`] = `
 
 <div>
-  <button tabindex="0"
-          class="MuiButtonBase-root-25 MuiButton-root-1 MuiButton-text-3 MuiButton-flat-6"
+  <button class="MuiButtonBase-root MuiButton-root MuiButton-text"
+          tabindex="0"
           type="button"
   >
-    <span class="MuiButton-label-2">
-      <svg class="MuiSvgIcon-root-28"
+    <span class="MuiButton-label">
+      <svg class="MuiSvgIcon-root"
            focusable="false"
            viewbox="0 0 24 24"
            aria-hidden="true"
+           role="presentation"
       >
         <path fill="none"
               d="M0 0h24v24H0z"
@@ -49,7 +51,7 @@ exports[`snapshot inactive 1`] = `
         </path>
       </svg>
     </span>
-    <span class="MuiTouchRipple-root-35">
+    <span class="MuiTouchRipple-root">
     </span>
   </button>
 </div>

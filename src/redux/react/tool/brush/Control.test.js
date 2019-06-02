@@ -45,7 +45,7 @@ describe('mapDispatchToProps', () => {
         const state = createReduceRoot(imageStorage)(undefined, {type: null})
         const { wrapper, store } = createMounted(imageStorage, state);
 
-        const button = wrapper.find('Button')
+        const button = wrapper.find('button')
         expect(button).toHaveLength(1);
 
         expect(store.getActions()).toHaveLength(0);

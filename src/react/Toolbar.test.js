@@ -33,7 +33,7 @@ it('moves', () => {
     expect(instance).toBeTruthy();
     expect(instance.state.hasCapture).toBe(false);
 
-    const dragButton = wrapper.find('Button.drag-button');
+    const dragButton = wrapper.find('.drag-button').hostNodes();
     expect(dragButton).toHaveLength(1);
 
     dragButton.simulate('pointerMove', null);

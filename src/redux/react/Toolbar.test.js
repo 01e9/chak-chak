@@ -29,7 +29,7 @@ describe('mapDispatchToProps', () => {
     it('onPositionUpdate', () => {
         const {wrapper, store} = createMounted(actionToolbarPositionSet(0, 0));
 
-        const dragButton = wrapper.find('Button.drag-button');
+        const dragButton = wrapper.find('.drag-button').hostNodes();
         expect(dragButton).toHaveLength(1);
 
         expect(store.getActions()).toHaveLength(0);

@@ -9,7 +9,7 @@ CMD=${@}
 
 SCRIPT_DIR=$(dirname $(readlink -f "$0"))
 PROJECT_DIR=$(dirname ${SCRIPT_DIR})
-IMAGE='arteniioleg/ide:js'
+IMAGE='01e9/ide:js'
 
 x11docker --hostdisplay --homedir ${HOME} --clipboard --stdout --stderr \
     --cap-default \
