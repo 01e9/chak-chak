@@ -61,7 +61,7 @@ module.exports = {
         modules: ['node_modules', paths.appNodeModules].concat(
             process.env.NODE_PATH.split(path.delimiter).filter(Boolean)
         ),
-        extensions: ['.web.js', '.mjs', '.js', '.json', '.web.jsx', '.jsx'],
+        extensions: ['.js', '.json', '.jsx', '.ts', '.tsx'],
         alias: {
             '@': path.resolve(__dirname, '../../src/')
         },
@@ -72,6 +72,11 @@ module.exports = {
     module: {
         strictExportPresence: true,
         rules: [
+            {
+                test: /\.tsx?$/,
+                use: 'ts-loader',
+                exclude: /node_modules/
+            },
             {
                 test: /\.(js|jsx|mjs)$/,
                 enforce: 'pre',
@@ -144,7 +149,7 @@ module.exports = {
                     },
                     {
                         loader: require.resolve('file-loader'),
-                        exclude: [/\.(js|jsx|mjs)$/, /\.html$/, /\.json$/],
+                        exclude: [/\.(ts|tsx|js|jsx|mjs)$/, /\.html$/, /\.json$/],
                         options: {
                             name: 'media/[name].[hash:8].[ext]',
                         },
