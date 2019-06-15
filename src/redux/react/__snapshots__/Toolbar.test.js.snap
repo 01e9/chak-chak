@@ -3,10 +3,10 @@
 exports[`snapshot 1`] = `
 
 <div>
-  <div class="MuiPaper-root MuiPaper-elevation1 MuiPaper-rounded Toolbar_-root-1"
+  <div class="MuiPaper-root MuiPaper-elevation1 MuiPaper-rounded"
        style="top: 102px; left: 101px;"
   >
-    <button class="MuiButtonBase-root MuiButton-root Toolbar_-drag-2 drag-button MuiButton-text"
+    <button class="MuiButtonBase-root MuiButton-root undefined drag-button MuiButton-text"
             tabindex="0"
             type="button"
     >

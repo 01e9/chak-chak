@@ -1,4 +1,4 @@
-import React from 'react'
+import * as React from 'react'
 import Canvas from "@/react/Canvas";
 import { connect } from 'react-redux'
 import selectMainImage from "@/redux/selectors/mainImage";

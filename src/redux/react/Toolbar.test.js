@@ -1,4 +1,4 @@
-import React from 'react'
+import * as React from 'react'
 import Toolbar from "@/redux/react/Toolbar";
 import { Provider } from 'react-redux'
 import configureStore from 'redux-mock-store'

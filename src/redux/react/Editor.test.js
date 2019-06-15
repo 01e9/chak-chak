@@ -1,4 +1,4 @@
-import React from 'react'
+import * as React from 'react'
 import createReduceRoot from "@/redux/reducers";
 import ImageStorage from "@/storage/ImageStorage";
 import { actionMainImageSet } from "@/redux/actions/mainImage";

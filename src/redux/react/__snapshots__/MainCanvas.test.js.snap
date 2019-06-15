@@ -3,9 +3,7 @@
 exports[`snapshot main image 1`] = `
 
 <div>
-  <div class="Canvas_-root-1"
-       style="width: 100px; height: 100px;"
-  >
+  <div style="width: 100px; height: 100px;">
   </div>
 </div>
 

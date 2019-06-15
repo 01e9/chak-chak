@@ -3,17 +3,17 @@
 exports[`snapshot 1`] = `
 
 <div>
-  <div class="Editor_-canvasWrap-1">
-    <div class="Canvas_-root-2"
-         style="width: 100px; height: 100px;"
-    >
+  <div>
+    <div style="width: 100px; height: 100px;">
     </div>
-    [ActiveTool]
+    <span>
+      [ActiveTool]
+    </span>
   </div>
-  <div class="MuiPaper-root MuiPaper-elevation1 MuiPaper-rounded Toolbar_-root-3"
+  <div class="MuiPaper-root MuiPaper-elevation1 MuiPaper-rounded"
        style="top: 100px; left: 100px;"
   >
-    <button class="MuiButtonBase-root MuiButton-root Toolbar_-drag-4 drag-button MuiButton-text"
+    <button class="MuiButtonBase-root MuiButton-root undefined drag-button MuiButton-text"
             tabindex="0"
             type="button"
     >

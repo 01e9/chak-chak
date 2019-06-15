@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`snapshot changed image 1`] = `
+
+<div style="width: 100px; height: 100px;">
+</div>
+
+`;
+
+exports[`snapshot changed image 2`] = `
+
+<div style="width: 101px; height: 102px;">
+</div>
+
+`;
+
+exports[`snapshot required props 1`] = `
+
+<div style="width: 100px; height: 100px;">
+</div>
+
+`;

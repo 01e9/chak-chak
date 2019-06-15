@@ -61,7 +61,7 @@ module.exports = {
         modules: ['node_modules', paths.appNodeModules].concat(
             process.env.NODE_PATH.split(path.delimiter).filter(Boolean)
         ),
-        extensions: ['.js', '.json', '.jsx', '.ts', '.tsx'],
+        extensions: ['.js', '.json', '.jsx', '.ts', '.tsx', '.scss'],
         alias: {
             '@': path.resolve(__dirname, '../../src/')
         },
@@ -107,9 +107,33 @@ module.exports = {
                         include: paths.appSrc,
                         loader: require.resolve('babel-loader'),
                         options: {
-
                             compact: true,
                         },
+                    },
+                    {
+                        test: /\.scss$/,
+                        use: [
+                            {
+                                loader: MiniCssExtractPlugin.loader,
+                                options: {
+                                    sourceMap: shouldUseSourceMap,
+                                },
+                            },
+                            {
+                                loader: require.resolve('css-loader'),
+                                options: {
+                                    sourceMap: shouldUseSourceMap,
+                                    modules: true,
+                                },
+                            },
+                            {
+                                loader: require.resolve('sass-loader'),
+                                options: {
+                                    sourceMap: shouldUseSourceMap,
+                                    implementation: require("sass")
+                                },
+                            },
+                        ],
                     },
                     {
                         test: /\.css$/,
@@ -149,7 +173,7 @@ module.exports = {
                     },
                     {
                         loader: require.resolve('file-loader'),
-                        exclude: [/\.(ts|tsx|js|jsx|mjs)$/, /\.html$/, /\.json$/],
+                        exclude: [/\.(ts|tsx|js|jsx|mjs|scss)$/, /\.html$/, /\.json$/],
                         options: {
                             name: 'media/[name].[hash:8].[ext]',
                         },

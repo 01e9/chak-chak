@@ -1,4 +1,4 @@
-import React from 'react'
+import * as React from 'react'
 import createEditor from "@/redux/react/entry/editor";
 import { createMount } from '@material-ui/core/test-utils';
 
