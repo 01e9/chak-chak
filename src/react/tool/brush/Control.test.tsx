@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { createRender, createMount } from '@material-ui/core/test-utils';
+import { createMount, createShallow } from '@material-ui/core/test-utils';
 import ToolBrushControl, { IToolBrushControlProps } from "@/react/tool/brush/Control";
 
 const requiredProps: IToolBrushControlProps = {
@@ -8,13 +8,16 @@ const requiredProps: IToolBrushControlProps = {
 
 describe('snapshot', () => {
     it('inactive', () => {
-        const wrapper = createRender()(<div><ToolBrushControl {...requiredProps} /></div>);
-        expect(wrapper.html()).toMatchSnapshot()
+        const wrapper = createShallow()(<ToolBrushControl {...requiredProps} />);
+        expect(wrapper).toMatchSnapshot()
     })
     it('active', () => {
-        const props = {isActive: true}
-        const wrapper = createRender()(<div><ToolBrushControl {...requiredProps} {...props} /></div>);
-        expect(wrapper.html()).toMatchSnapshot()
+        const props: IToolBrushControlProps = {
+            ...requiredProps,
+            isActive: true
+        };
+        const wrapper = createShallow()(<ToolBrushControl {...props} />);
+        expect(wrapper).toMatchSnapshot()
     })
 })
 

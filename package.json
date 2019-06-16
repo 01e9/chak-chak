@@ -108,7 +108,8 @@
       "tsx"
     ],
     "snapshotSerializers": [
-      "jest-serializer-html"
+      "jest-serializer-html",
+      "enzyme-to-json/serializer"
     ],
     "preset": "ts-jest"
   },
@@ -134,6 +135,7 @@
     "babel-plugin-module-resolver": "^3.2.0",
     "enzyme": "^3.9.0",
     "enzyme-adapter-react-16": "^1.13.2",
+    "enzyme-to-json": "^3.3.5",
     "jest-canvas-mock": "^1.1.0",
     "jest-serializer-html": "^5.0.0",
     "redux-mock-store": "^1.5.3"
