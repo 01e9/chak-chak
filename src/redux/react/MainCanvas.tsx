@@ -3,12 +3,18 @@ import Canvas from "@/react/Canvas";
 import { connect } from 'react-redux'
 import selectMainImage from "@/redux/selectors/mainImage";
 import { ImageStorageConsumer } from "@/react/context/ImageStorage";
+import { IState } from "@/redux/reducers";
+import ImageStorage from "@/storage/ImageStorage";
 
-const mapStateToProps = (state, ownProps) => ({
+interface IMainCanvasConnectedProps {
+    imageStorage: ImageStorage;
+}
+
+const mapStateToProps = (state: IState, ownProps: IMainCanvasConnectedProps) => ({
     image: selectMainImage(state, ownProps.imageStorage)
 })
 
-const MainCanvasConnected = connect(mapStateToProps, null)(Canvas)
+const MainCanvasConnected = connect(mapStateToProps)(Canvas)
 
 const MainCanvas = () => (
     <ImageStorageConsumer>

@@ -1,12 +1,14 @@
 import * as React from 'react'
 import { connect } from 'react-redux'
-import Toolbar_ from "@/react/Toolbar";
+import Toolbar_, { IToolbarProps } from "@/react/Toolbar";
 import { selectToolbarPosition } from "@/redux/selectors/toolbar";
 import { actionToolbarPositionSet } from "@/redux/actions/toolbar";
 import ToolBrushControl from "@/redux/react/tool/brush/Control";
 import { TOOL_NAME_BRUSH } from "@/constants/tools";
+import { IState } from "@/redux/reducers";
+import { AnyAction, Dispatch } from "redux";
 
-const mapStateToProps = (state, ownProps) => {
+const mapStateToProps = (state: IState): Omit<IToolbarProps, "onPositionUpdate"> => {
     const position = selectToolbarPosition(state);
 
     return {
@@ -18,7 +20,7 @@ const mapStateToProps = (state, ownProps) => {
     }
 }
 
-const mapDispatchToProps = (dispatch, ownProps) => ({
+const mapDispatchToProps = (dispatch: Dispatch<AnyAction>): Pick<IToolbarProps, "onPositionUpdate"> => ({
     onPositionUpdate: (left, top) => dispatch(actionToolbarPositionSet(left, top))
 })
 

@@ -5,5 +5,5 @@ cache:
   directories:
   - node_modules
 script:
-- npm test -- --coverage --collectCoverageFrom=src/**/*.js --collectCoverageFrom=!src/entry/*.js
+- npm test -- --coverage
 - npm run build

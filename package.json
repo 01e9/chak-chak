@@ -73,7 +73,8 @@
   },
   "jest": {
     "collectCoverageFrom": [
-      "src/**/*.{js,jsx,ts,tsx}"
+      "src/**/*.{js,jsx,ts,tsx}",
+      "!src/entry/*"
     ],
     "setupFiles": [
       "<rootDir>/config/enzyme-adapter.js",

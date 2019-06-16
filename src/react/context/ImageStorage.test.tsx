@@ -10,7 +10,7 @@ it('default value', () => {
             {(value) => { receivedValue = value; return <span>OK</span>; }}
         </ImageStorageContext.Consumer>
     )
-    expect(receivedValue).toBe(null)
+    expect(receivedValue).toBeInstanceOf(ImageStorage)
 })
 it('explicit value', () => {
     const imageStorage = new ImageStorage()

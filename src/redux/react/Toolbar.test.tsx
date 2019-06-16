@@ -6,10 +6,11 @@ import ImageStorage from "@/storage/ImageStorage";
 import createReduceRoot from "@/redux/reducers";
 import { createMount } from "@material-ui/core/test-utils";
 import { actionToolbarPositionSet } from "@/redux/actions/toolbar";
+import { AnyAction } from "redux";
 
 const mockStore = configureStore([])
 
-function createMounted(action = {type: null}) {
+function createMounted(action: AnyAction) {
     const stateWithToolbarPosition = createReduceRoot(new ImageStorage())(undefined, action)
     const store = mockStore(stateWithToolbarPosition);
     const wrapper = createMount()(
