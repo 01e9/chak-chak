@@ -41,7 +41,7 @@ const htmlPluginOptions = {
 }
 
 module.exports = {
-    mode: "production",
+    mode: shouldUseSourceMap ? "development" : "production",
     bail: true,
     devtool: shouldUseSourceMap ? 'source-map' : false,
     entry: {
@@ -76,7 +76,7 @@ module.exports = {
             {
                 test: /\.tsx?$/,
                 use: 'ts-loader',
-                exclude: /node_modules/
+                exclude: /node_modules/,
             },
             {
                 test: /\.(js|jsx|mjs)$/,
@@ -86,7 +86,7 @@ module.exports = {
                         options: {
                             formatter: eslintFormatter,
                             eslintPath: require.resolve('eslint'),
-
+                            sourceMap: shouldUseSourceMap,
                         },
                         loader: require.resolve('eslint-loader'),
                     },

@@ -67,7 +67,6 @@
     "whatwg-fetch": "^3.0.0"
   },
   "scripts": {
-    "editor": "node scripts/editor.js",
     "build": "node scripts/build.js",
     "test": "node scripts/test.js --env=jsdom"
   },
