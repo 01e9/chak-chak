@@ -62,10 +62,7 @@ class Toolbar extends React.Component<IToolbarProps, IState> {
     }
 
     onMove = (event: React.PointerEvent) => {
-        if (!this.state.hasCapture) {
-            return;
-        }
-
+        event.stopPropagation();
         const pointerPosition = this.getPointerPosition(event);
 
         this.setState(({leftShift, topShift}) => ({
@@ -90,7 +87,7 @@ class Toolbar extends React.Component<IToolbarProps, IState> {
     render() {
         const
             { tools } = this.props,
-            { top, left } = this.state;
+            { top, left, hasCapture } = this.state;
 
         return (
             <Paper className={styles.root} style={{top: top + 'px', left: left + 'px'}}>
@@ -100,7 +97,7 @@ class Toolbar extends React.Component<IToolbarProps, IState> {
 
                     onPointerDown={this.onDown}
                     onGotPointerCapture={this.onGotCapture}
-                    onPointerMove={this.onMove}
+                    onPointerMove={hasCapture ? this.onMove : undefined}
                     onLostPointerCapture={this.onLostCapture}
                 >
                     <DragIndicatorIcon />
