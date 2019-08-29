@@ -1,7 +1,7 @@
 import reduceToolBrush, { IStateToolsBrush } from "@/redux/reducers/tools/brush";
 import reduceToolColor, { IStateToolsColor } from "@/redux/reducers/tools/color";
-import { AnyAction } from "redux";
 import ImageStorage from "@/storage/ImageStorage";
+import { IAction } from "@/redux/utils/actions";
 
 export interface IStateTools {
     brush: IStateToolsBrush;
@@ -10,7 +10,7 @@ export interface IStateTools {
 
 export default function reduceTools(
     state: Partial<IStateTools> = {},
-    action: AnyAction,
+    action: IAction,
     imageStorage: ImageStorage
 ): IStateTools {
     return {

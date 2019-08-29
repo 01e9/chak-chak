@@ -1,38 +1,28 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`snapshot 1`] = `
-
-<div>
-  <div class="MuiPaper-root MuiPaper-elevation1 MuiPaper-rounded"
-       style="top: 102px; left: 101px;"
+<WithStyles(ForwardRef(Paper))
+  style={
+    Object {
+      "left": "101px",
+      "top": "102px",
+    }
+  }
+>
+  <WithStyles(ForwardRef(Button))
+    className="undefined drag-button"
+    disableRipple={true}
+    onGotPointerCapture={[Function]}
+    onLostPointerCapture={[Function]}
+    onPointerDown={[Function]}
   >
-    <button class="MuiButtonBase-root MuiButton-root undefined drag-button MuiButton-text"
-            tabindex="0"
-            type="button"
-    >
-      <span class="MuiButton-label">
-        <svg class="MuiSvgIcon-root"
-             focusable="false"
-             viewbox="0 0 24 24"
-             aria-hidden="true"
-             role="presentation"
-        >
-          <path fill="none"
-                d="M0 0h24v24H0V0z"
-          >
-          </path>
-          <path d="M11 18c0 1.1-.9 2-2 2s-2-.9-2-2 .9-2 2-2 2 .9 2 2zm-2-8c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0-6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm6 4c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z">
-          </path>
-        </svg>
-      </span>
-    </button>
-    <button>
-      [Tool1]
-    </button>
-    <button>
-      [Tool2]
-    </button>
-  </div>
-</div>
-
+    <DragIndicatorIcon />
+  </WithStyles(ForwardRef(Button))>
+  <Component
+    key="1"
+  />
+  <Component
+    key="2"
+  />
+</WithStyles(ForwardRef(Paper))>
 `;

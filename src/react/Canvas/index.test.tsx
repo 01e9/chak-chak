@@ -1,23 +1,21 @@
 import * as React from 'react';
-import { createMount } from '@material-ui/core/test-utils';
+import { createShallow } from '@material-ui/core/test-utils';
 import Canvas, { ICanvasProps } from "@/react/Canvas";
 
 const requiredProps: ICanvasProps = {
-    image: new Image(100, 100)
-}
-
-function createMounted(props = {}) {
-    return createMount()(<Canvas {...requiredProps} {...props} />)
+    image: new Image(100, 100),
+    aspectRatio: 1,
 }
 
 describe('snapshot', () => {
     it('required props', () => {
-        expect(createMounted().html()).toMatchSnapshot()
+        const wrapper = createShallow()(<Canvas {...requiredProps} />);
+        expect(wrapper).toMatchSnapshot()
     })
     it('changed image', async () => {
-        const wrapper = createMounted()
-        expect(wrapper.html()).toMatchSnapshot()
+        const wrapper = createShallow()(<Canvas {...requiredProps} />);
+        expect(wrapper).toMatchSnapshot("before")
         await new Promise(resolve => wrapper.setProps({image: new Image(101, 102)}, resolve))
-        expect(wrapper.html()).toMatchSnapshot()
+        expect(wrapper).toMatchSnapshot("after")
     })
 })

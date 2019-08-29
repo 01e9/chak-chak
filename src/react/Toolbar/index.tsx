@@ -8,7 +8,7 @@ export interface IToolbarProps {
     left: number;
     top: number;
     onPositionUpdate: (left: number, top: number) => void;
-    tools: Array<React.JSXElementConstructor<{}>>;
+    tools: Array<{key: string; Component: React.JSXElementConstructor<{}>}>;
 }
 
 interface IState {
@@ -102,7 +102,7 @@ class Toolbar extends React.Component<IToolbarProps, IState> {
                 >
                     <DragIndicatorIcon />
                 </Button>
-                {tools.map((Tool, index) => <Tool key={index} />) /* fixme: pass tool name for use in key={} */ }
+                {tools.map(({key, Component}) => <Component key={key} />)}
             </Paper>
         )
     }

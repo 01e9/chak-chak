@@ -20,12 +20,11 @@ export function canvasGetAspectRatio(canvas: HTMLCanvasElement): number {
     return aspectRatio;
 }
 
-export function canvasDrawImage(canvas: HTMLCanvasElement, image: HTMLImageElement) {
+export function canvasDrawImage(canvas: HTMLCanvasElement, image: HTMLImageElement, aspectRatio: number) {
     canvas.width = image.naturalWidth || image.width;
     canvas.height = image.naturalHeight || image.height;
-    const canvasAspectRatio = canvasGetAspectRatio(canvas);
-    canvas.style.width = (canvas.width / canvasAspectRatio) + 'px';
-    canvas.style.height = (canvas.height / canvasAspectRatio) + 'px';
+    canvas.style.width = (canvas.width / aspectRatio) + 'px';
+    canvas.style.height = (canvas.height / aspectRatio) + 'px';
 
     const context = canvas.getContext('2d');
     if (context) {

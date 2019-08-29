@@ -1,6 +1,3 @@
-export const ACTION_MAIN_IMAGE_SET = 'SET_MAIN_IMAGE'
+import { actionCreator } from "@/redux/utils/actions";
 
-export const actionMainImageSet = (image: HTMLImageElement) => ({
-    type: ACTION_MAIN_IMAGE_SET,
-    image
-});
+export const actionMainImageSet = actionCreator<HTMLImageElement>("SET_MAIN_IMAGE");

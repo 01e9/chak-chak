@@ -3,15 +3,16 @@ import { canvasDrawImage } from "@/utility/canvas";
 import * as styles from "./styles.scss";
 
 export interface ICanvasProps {
-    image: HTMLImageElement;
+    image?: HTMLImageElement;
+    aspectRatio: number;
 }
 
 export default class Canvas extends React.Component<ICanvasProps> {
     canvasRef = React.createRef<HTMLCanvasElement>()
 
     redrawImage() {
-        if (this.canvasRef.current) {
-            canvasDrawImage(this.canvasRef.current, this.props.image);
+        if (this.canvasRef.current && this.props.image) {
+            canvasDrawImage(this.canvasRef.current, this.props.image, this.props.aspectRatio);
         }
     }
 

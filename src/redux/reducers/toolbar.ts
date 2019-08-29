@@ -1,5 +1,5 @@
-import { ACTION_TOOLBAR_POSITION_SET } from "@/redux/actions/toolbar";
-import { AnyAction } from "redux";
+import { actionToolbarPositionSet } from "@/redux/actions/toolbar";
+import { IAction } from "@/redux/utils/actions";
 
 export interface IStateToolbar {
     x: number;
@@ -11,10 +11,10 @@ const defaultState: IStateToolbar = {
     y: 100
 }
 
-export default function reduceToolbar(state: IStateToolbar = defaultState, action: AnyAction) {
-    switch (action.type) {
-        case ACTION_TOOLBAR_POSITION_SET: {
-            return {...state, x: action.x, y: action.y};
+export default function reduceToolbar(state: IStateToolbar = defaultState, { type, payload }: IAction) {
+    switch (type) {
+        case actionToolbarPositionSet.type: {
+            return {...state, x: payload.x, y: payload.y};
         }
         default: return state;
     }

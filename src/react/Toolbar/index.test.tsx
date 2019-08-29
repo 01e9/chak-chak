@@ -1,31 +1,28 @@
 import * as React from 'react'
 import Toolbar, { IToolbarProps } from "@/react/Toolbar";
-import { createMount } from '@material-ui/core/test-utils';
+import { createMount, createShallow } from '@material-ui/core/test-utils';
 
 const requiredProps: IToolbarProps = {
     left: 101,
     top: 102,
     onPositionUpdate: jest.fn(),
     tools: [
-        () => <button key="tool1">[Tool1]</button>,
-        () => <button key="tool2">[Tool2]</button>,
+        {key: "1", Component: () => <button key="tool1">[Tool1]</button>},
+        {key: "2", Component: () => <button key="tool2">[Tool2]</button>},
     ]
 }
 
-function createMounted(props = {}) {
-    return createMount()(<div><Toolbar {...requiredProps} {...props} /></div>)
-}
-
 it('snapshot', () => {
-    const wrapper = createMounted()
-    expect(wrapper.html()).toMatchSnapshot();
+    const wrapper = createShallow()(<Toolbar {...requiredProps} />);
+    expect(wrapper).toMatchSnapshot();
 })
 
 it('moves', () => {
-    const props = {
+    const props: IToolbarProps = {
+        ...requiredProps,
         onPositionUpdate: jest.fn()
     }
-    const wrapper = createMounted(props)
+    const wrapper = createMount()(<Toolbar {...props} />);
 
     expect(props.onPositionUpdate).not.toHaveBeenCalled();
 
@@ -89,6 +86,8 @@ it('moves', () => {
     }
 
     expect(props.onPositionUpdate).toHaveBeenCalledTimes(1);
-    expect(props.onPositionUpdate.mock.calls[0][0]).toBe(requiredProps.left + leftMove - leftShift);
-    expect(props.onPositionUpdate.mock.calls[0][1]).toBe(requiredProps.top + topMove - topShift);
+    expect(props.onPositionUpdate).toHaveBeenCalledWith(
+        requiredProps.left + leftMove - leftShift,
+        requiredProps.top + topMove - topShift
+    );
 })

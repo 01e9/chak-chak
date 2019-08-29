@@ -1,17 +1,17 @@
-import { ACTION_MAIN_IMAGE_SET } from "@/redux/actions/mainImage";
+import { actionMainImageSet } from "@/redux/actions/mainImage";
 import ImageStorage from "@/storage/ImageStorage";
-import { AnyAction } from "redux";
+import { IAction } from "@/redux/utils/actions";
 
 export type IStateMainImage = string | null;
 
 export default function reduceMainImage(
     state: IStateMainImage = null,
-    action: AnyAction,
+    { type, payload }: IAction,
     imageStorage: ImageStorage
 ): IStateMainImage {
-    switch (action.type) {
-        case ACTION_MAIN_IMAGE_SET: {
-            return imageStorage.add(action.image);
+    switch (type) {
+        case actionMainImageSet.type: {
+            return imageStorage.add(payload);
         }
         default: return state;
     }

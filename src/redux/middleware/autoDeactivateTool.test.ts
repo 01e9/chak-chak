@@ -32,7 +32,7 @@ describe('does nothing', () => {
         expect(actions[0]).toEqual(actionToolActivate('foo'));
     })
     it('on no current active tool', () => {
-        const store = mockStore(createReduceRoot(new ImageStorage())(undefined, {type: null}))
+        const store = mockStore(createReduceRoot(new ImageStorage())(undefined, {type: "unknown", payload: null}))
         expect(store.getActions()).toHaveLength(0);
 
         store.dispatch(actionToolActivate('foo'));

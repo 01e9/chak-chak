@@ -1,13 +1,5 @@
-export const ACTION_TOOL_ACTIVATE = 'ACTION_TOOL_ENABLE'
+import { actionCreator } from "@/redux/utils/actions";
 
-export const actionToolActivate = (name: string) => ({
-    type: ACTION_TOOL_ACTIVATE,
-    name
-})
+export const actionToolActivate = actionCreator<string>("TOOL_ACTIVATE");
+export const actionToolDeactivate = actionCreator<string>("TOOL_DEACTIVATE");
 
-export const ACTION_TOOL_DEACTIVATE = 'ACTION_TOOL_DISABLE'
-
-export const actionToolDeactivate = (name: string) => ({
-    type: ACTION_TOOL_DEACTIVATE,
-    name
-})

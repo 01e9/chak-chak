@@ -4,7 +4,7 @@ import ImageStorage from "@/storage/ImageStorage";
 
 it('default state', () => {
     const imageStorage = new ImageStorage();
-    expect(reduceMainImage(undefined, {type: null}, imageStorage)).toBe(null);
+    expect(reduceMainImage(undefined, {type: "?", payload: null}, imageStorage)).toBe(null);
 })
 it('set', () => {
     const image = new Image();

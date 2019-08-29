@@ -1,17 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`snapshot required props 1`] = `
-
 <div>
-  <div>
-    [Canvas]
-  </div>
-  <div>
-    [ActiveTool]
-  </div>
+  <Editor
+    ActiveTool={[Function]}
+    Canvas={[Function]}
+    Toolbar={[Function]}
+  />
 </div>
-<div>
-  [Toolbar]
-</div>
-
 `;

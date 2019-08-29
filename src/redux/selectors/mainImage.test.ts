@@ -8,7 +8,7 @@ it('works', () => {
     const imageStorage = new ImageStorage()
     const reduceRoot = createReduceRoot(imageStorage)
 
-    const stateWithoutImage = reduceRoot(undefined, {type: null})
+    const stateWithoutImage = reduceRoot(undefined, {type: "?", payload: null})
     expect(selectMainImage(stateWithoutImage, imageStorage)).toBe(null)
 
     const stateWithImage = reduceRoot(undefined, actionMainImageSet(image))

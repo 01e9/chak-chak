@@ -11,6 +11,6 @@ it('canvasDrawImage', () => {
     const canvas = document.createElement('canvas');
     expect(canvas).not.toHaveProperty('width');
     const image = new Image(100, 100);
-    canvasDrawImage(canvas, image);
+    canvasDrawImage(canvas, image, 1);
     expect(canvas).toHaveProperty('width');
 });

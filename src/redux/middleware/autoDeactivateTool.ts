@@ -1,12 +1,13 @@
-import { ACTION_TOOL_ACTIVATE, actionToolDeactivate } from "@/redux/actions/tools";
+import { actionToolActivate, actionToolDeactivate } from "@/redux/actions/tools";
 import { selectActiveTool } from "@/redux/selectors/activeTool";
-import { AnyAction, Middleware } from "redux";
+import { Middleware } from "redux";
+import { IAction } from "@/redux/utils/actions";
 
-const middlewareAutoDeactivateTool: Middleware = store => next => (action: AnyAction) => {
-    if (action.type === ACTION_TOOL_ACTIVATE) {
+const middlewareAutoDeactivateTool: Middleware = store => next => (action: IAction) => {
+    if (action.type === actionToolActivate.type) {
         const activeTool = selectActiveTool(store.getState());
 
-        if (activeTool && activeTool !== action.name) {
+        if (activeTool && activeTool !== action.payload) {
             store.dispatch(actionToolDeactivate(activeTool))
         }
     }

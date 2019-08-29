@@ -1,6 +1,6 @@
 import * as React from 'react'
 import Editor, { IEditorProps } from '@/react/Editor'
-import { createRender } from '@material-ui/core/test-utils';
+import { createShallow } from '@material-ui/core/test-utils';
 
 const requiredProps: IEditorProps = {
     Canvas: () => <div>[Canvas]</div>,
@@ -8,12 +8,9 @@ const requiredProps: IEditorProps = {
     ActiveTool: () => <div>[ActiveTool]</div>,
 }
 
-function createRendered(props: Partial<IEditorProps> = {}) {
-    return createRender()(<div><Editor {...requiredProps} {...props} /></div>)
-}
-
 describe('snapshot', () => {
     it('required props', () => {
-        expect(createRendered().html()).toMatchSnapshot();
+        const wrapper = createShallow()(<div><Editor {...requiredProps} /></div>);
+        expect(wrapper).toMatchSnapshot();
     })
 })

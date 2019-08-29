@@ -20,7 +20,7 @@ describe('snapshot', () => {
         const wrapper = createMount()(
             <Provider store={store}>
                 <ImageStorageProvider value={imageStorage}>
-                    <div><MainCanvas/></div>
+                    <MainCanvas/>
                 </ImageStorageProvider>
             </Provider>
         )

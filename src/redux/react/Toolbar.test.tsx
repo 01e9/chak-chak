@@ -6,29 +6,29 @@ import ImageStorage from "@/storage/ImageStorage";
 import createReduceRoot from "@/redux/reducers";
 import { createMount } from "@material-ui/core/test-utils";
 import { actionToolbarPositionSet } from "@/redux/actions/toolbar";
-import { AnyAction } from "redux";
+import { IAction } from "@/redux/utils/actions";
 
 const mockStore = configureStore([])
 
-function createMounted(action: AnyAction) {
+function createMounted(action: IAction) {
     const stateWithToolbarPosition = createReduceRoot(new ImageStorage())(undefined, action)
     const store = mockStore(stateWithToolbarPosition);
     const wrapper = createMount()(
         <Provider store={store}>
-            <div><Toolbar/></div>
+            <Toolbar/>
         </Provider>
     )
     return {wrapper, store}
 }
 
 it('snapshot', () => {
-    const {wrapper} = createMounted(actionToolbarPositionSet(101, 102));
+    const {wrapper} = createMounted(actionToolbarPositionSet({x: 101, y: 102}));
     expect(wrapper.html()).toMatchSnapshot()
 })
 
 describe('mapDispatchToProps', () => {
     it('onPositionUpdate', () => {
-        const {wrapper, store} = createMounted(actionToolbarPositionSet(0, 0));
+        const {wrapper, store} = createMounted(actionToolbarPositionSet({x: 0, y: 0}));
 
         const dragButton = wrapper.find('.drag-button').hostNodes();
         expect(dragButton).toHaveLength(1);
@@ -41,6 +41,6 @@ describe('mapDispatchToProps', () => {
 
         const actions = store.getActions();
         expect(actions).toHaveLength(1);
-        expect(actions[0]).toEqual(actionToolbarPositionSet(9, 8));
+        expect(actions[0]).toEqual(actionToolbarPositionSet({x: 9, y: 8}));
     })
 })

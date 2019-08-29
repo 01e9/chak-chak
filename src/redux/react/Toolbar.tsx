@@ -6,7 +6,8 @@ import { actionToolbarPositionSet } from "@/redux/actions/toolbar";
 import ToolBrushControl from "@/redux/react/tool/brush/Control";
 import { TOOL_NAME_BRUSH } from "@/constants/tools";
 import { IState } from "@/redux/reducers";
-import { AnyAction, Dispatch } from "redux";
+import { IAction } from "@/redux/utils/actions";
+import { Dispatch } from "redux";
 
 const mapStateToProps = (state: IState): Omit<IToolbarProps, "onPositionUpdate"> => {
     const position = selectToolbarPosition(state);
@@ -15,13 +16,13 @@ const mapStateToProps = (state: IState): Omit<IToolbarProps, "onPositionUpdate">
         left: position.x,
         top: position.y,
         tools: [
-            () => <ToolBrushControl key={TOOL_NAME_BRUSH} />
+            {key: TOOL_NAME_BRUSH, Component: ToolBrushControl}
         ]
     }
 }
 
-const mapDispatchToProps = (dispatch: Dispatch<AnyAction>): Pick<IToolbarProps, "onPositionUpdate"> => ({
-    onPositionUpdate: (left, top) => dispatch(actionToolbarPositionSet(left, top))
+const mapDispatchToProps = (dispatch: Dispatch<IAction>): Pick<IToolbarProps, "onPositionUpdate"> => ({
+    onPositionUpdate: (x, y) => dispatch(actionToolbarPositionSet({x, y}))
 })
 
 const Toolbar = connect(mapStateToProps, mapDispatchToProps)(Toolbar_)

@@ -2,7 +2,7 @@ import reduceActiveTool from "@/redux/reducers/activeTool";
 import { actionToolActivate, actionToolDeactivate } from "@/redux/actions/tools";
 
 it('default state', () => {
-    const state = reduceActiveTool(undefined, {type: null})
+    const state = reduceActiveTool(undefined, {type: "?", payload: null})
     expect(state).toBe(null);
 });
 it('activate', () => {
